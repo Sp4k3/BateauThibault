@@ -14,8 +14,17 @@
     </ion-toolbar>
   </ion-header>
 
+  
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <p><strong class="capitalize">{{ folder }}</strong></p>
+    <ng-container *ngIf="router.url=='/folder/Bateaux'; else elseTemplate">
+      <ion-button color="primary" href="/details/{{ folder }}1">De la Brise</ion-button>
+      <ion-button color="primary" href="/details/{{ folder }}2">Saphir</ion-button>  
+      <ion-button color="primary" href="/details/{{ folder }}3">Gast Micher</ion-button>
+      <ion-button color="primary" href="/details/{{ folder }}4">Aquilon</ion-button>      
+    </ng-container>
+    <ng-template #elseTemplate>
+      <ion-button color="primary" href="/details/{{ folder }}">Détails</ion-button>
+    </ng-template>
   </div>
 </ion-content>

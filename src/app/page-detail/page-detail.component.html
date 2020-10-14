@@ -1,0 +1,16 @@
+<div id="container">
+  <!-- <ng-container *ngIf="router.isActive('/folder/Accueil')"> 
+    <div *ngFor="let detail of detailspage">{{detail.details}}</div> 
+  </ng-container> -->
+
+  <ng-container *ngFor="let detail of detailspage"> 
+      <div *ngIf="detail.url==router.url">
+        <p><strong class="capitalize">{{ detail.title }}</strong></p>
+        <img src="{{detail.picture}}">
+        <p>{{detail.tel}}<br>
+        {{detail.mail}}<br>
+        {{detail.facebook}}
+        <p>{{addBr(detail.details)}}</p>
+      </div> 
+    </ng-container>
+</div>
