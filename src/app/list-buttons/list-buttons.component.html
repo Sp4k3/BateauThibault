@@ -2,7 +2,7 @@
 <ion-grid>
   <ion-row>
     <ion-col *ngFor="let element of elements" size="6">
-      <ion-button expand="block" href="/details/{{ element['url'] }}">{{ element['label'] }}</ion-button>
+      <ion-button expand="block" href="{{ element['url'] }}">{{ element['label'] }}</ion-button>
     </ion-col>
   </ion-row>
 </ion-grid>
