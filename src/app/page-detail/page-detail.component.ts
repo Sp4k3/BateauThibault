@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./page-detail.component.scss'],
 })
 export class PageDetailComponent implements OnInit {
+
+
+  @HostListener("window:resize") orientationState() {
+    if (screen.orientation.type=="portrait-primary") {
+      return "12"
+    } else if (screen.orientation.type=="landscape-primary"){
+      return "6"
+    }
+  }
 
   constructor(public router: Router) { }
 

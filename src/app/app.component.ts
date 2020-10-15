@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Accueil',
       url: '',
-      icon: '/assets/icon/homeLogo.png'
+      icon: '/assets/icon/home.png'
     },
     {
       title: 'Produits',

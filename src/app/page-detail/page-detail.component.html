@@ -1,9 +1,18 @@
 <div id="container">
   <ng-container *ngFor="let detail of detailspage"> 
       <div *ngIf="detail.url==router.url">
-        <p><strong class="capitalize">{{ detail.title }}</strong></p>
-        <img src="{{detail.picture}}">
-        <p>{{addBr(detail.details)}}</p>
+        <strong class="capitalize">{{ detail.title }}</strong>
+          <ion-grid>
+            <ion-row class="ion-justify-content-center">
+              <ion-col size={{orientationState()}}>
+                <img src="{{detail.picture}}">
+              </ion-col>
+              <ion-col size={{orientationState()}} class="ion-align-self-center">
+                {{addBr(detail.details)}}
+                <app-list-infos></app-list-infos>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
       </div> 
     </ng-container>
 </div>
