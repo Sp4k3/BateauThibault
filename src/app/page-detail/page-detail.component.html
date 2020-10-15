@@ -3,9 +3,6 @@
       <div *ngIf="detail.url==router.url">
         <p><strong class="capitalize">{{ detail.title }}</strong></p>
         <img src="{{detail.picture}}">
-        <p>{{detail.tel}}<br>
-        {{detail.mail}}<br>
-        {{detail.facebook}}
         <p>{{addBr(detail.details)}}</p>
       </div> 
     </ng-container>
