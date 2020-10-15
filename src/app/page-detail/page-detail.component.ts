@@ -42,7 +42,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Contact'
+      url: '/details/contact'
     },
     {
       title: 'Bateau',
@@ -51,7 +51,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Bateaux'
+      url: '/details/boats'
     },
     {
       title: 'Recettes',
@@ -60,7 +60,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Recettes'
+      url: '/details/recipes'
     },
     {
       title: 'Restaurants',
@@ -69,7 +69,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Restaurants'
+      url: '/details/restaurants'
     },
     {
       title: 'De la Brise',
@@ -78,7 +78,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Bateaux1'
+      url: '/details/delabrise'
     },
     {
       title: 'Saphir',
@@ -87,7 +87,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Bateaux2'
+      url: '/details/saphir'
     },
     {
       title: 'Gast Micher',
@@ -96,7 +96,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Bateaux3'
+      url: '/details/gastmicher'
     },
     {
       title: 'Aquilon',
@@ -105,7 +105,7 @@ export class PageDetailComponent implements OnInit {
       tel: '06.63.99.99.78',
       mail: 'lebateaudethibault@gmail.com',
       facebook: 'www.facebook.com/lebateaudethibault',
-      url: '/details/Bateaux4'
+      url: '/details/aquilon'
     }
   ];
 

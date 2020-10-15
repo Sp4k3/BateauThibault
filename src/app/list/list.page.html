@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ this.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+    <app-list-infos 
+      *ngIf="this.title !== 'Choisissez vos produits'" 
+      [slogan]="this.slogan"
+      class="infos">
+    </app-list-infos>
+    <app-list-buttons 
+      [elements]="this.elements"
+      [list]="this.list"
+      class="buttons">
+    </app-list-buttons>
+  </div>
+</ion-content>
