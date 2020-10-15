@@ -1,0 +1,26 @@
+{
+  "title": "Le Bateau de Thibault",
+  "slogan": "Vente en direct de notre bateau. Produits selon la saison, livraisons sur Paris.",
+  "elements": [
+    {
+      "label": "Produits",
+      "url": "/list/products"
+    },
+    {
+      "label": "Bateaux",
+      "url": "/list/boats"
+    },
+    {
+      "label": "Restaurants",
+      "url": "/list/restaurants"
+    },
+    {
+      "label": "Recettes",
+      "url": "/list/recipes"
+    },
+    {
+      "label": "Contact",
+      "url": "/list/contact"
+    }
+  ]
+}

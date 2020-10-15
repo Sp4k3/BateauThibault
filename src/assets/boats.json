@@ -1,0 +1,30 @@
+{
+  "title": "Bateaux Partenaires",
+  "slogan": "Toutes les eaux mènent à Thibault.",
+  "elements": [
+    {
+      "label": "De la Brise",
+      "url": "/details/delabrise"
+    },
+    {
+      "label": "Aquilon",
+      "url": "/details/aquilon"
+    },
+    {
+      "label": "Gast Micher",
+      "url": "/details/gastmicher"
+    },
+    {
+      "label": "Saphir",
+      "url": "/details/saphir"
+    },
+    {
+      "label": "Contact",
+      "url": "/details/contact"
+    },
+    {
+      "label": "Contact",
+      "url": "/details/contact"
+    }
+  ]
+}
