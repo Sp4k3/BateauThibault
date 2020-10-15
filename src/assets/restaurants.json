@@ -1,0 +1,30 @@
+{
+  "title": "Restaurants Partenaires",
+  "slogan": "Tous les restaurants partenaires avec le bateau de Thibault.",
+  "elements": [
+    {
+      "label": "Bistrot des Gascons",
+      "url": "/details/bistrotdesgascons"
+    },
+    {
+      "label": "Les fous de l\"île",
+      "url": "/details/lesfousdelile"
+    },
+    {
+      "label": "Bistrot Landais",
+      "url": "/details/bistrotlandais"
+    },
+    {
+      "label": "Villa 9-Trois",
+      "url": "/details/villa9-trois"
+    },
+    {
+      "label": "Bistrot du Sommelier",
+      "url": "/details/bistrotdusommelier"
+    },
+    {
+      "label": "Devenez Partenaire",
+      "url": "/details/devenezpartenaire"
+    }
+  ]
+}

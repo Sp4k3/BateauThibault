@@ -1,0 +1,30 @@
+{
+  "title": "Nos Recettes",
+  "slogan": "Toutes les recettes du bateau de Thibault.",
+  "elements": [
+    {
+      "label": "Homard",
+      "url": "/details/homard"
+    },
+    {
+      "label": "St Jacques",
+      "url": "/details/stjacques"
+    },
+    {
+      "label": "Bar",
+      "url": "/details/bar"
+    },
+    {
+      "label": "Tourteau",
+      "url": "/details/tourteau"
+    },
+    {
+      "label": "Recette",
+      "url": "/list/recipes"
+    },
+    {
+      "label": "Recette",
+      "url": "/list/recipes"
+    }
+  ]
+}

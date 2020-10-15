@@ -9,19 +9,19 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+    loadChildren: () => import('./details/details.module').then(m => m.DetailsPageModule)
   },
   {
     path: 'list/:id',
-    data: { 
-      home: { // A CHANGER !!
+    data: {
+      home: {
         title: 'Le Bateau de Thibault',
         slogan: 'Vente en direct de notre bateau. Produits selon la saison, livraisons sur Paris.',
         elements: [
-          { label: 'Produits', url: '/list/products'}, 
+          { label: 'Produits', url: '/list/products' },
           { label: 'Bateaux', url: '/list/boats' },
           { label: 'Restaurants', url: '/list/restaurants' },
-          { label: 'Recettes',  url: '/list/recipes' },
+          { label: 'Recettes', url: '/list/recipes' },
           { label: 'Contact', url: '/list/contact' }
         ]
       },
@@ -29,9 +29,9 @@ const routes: Routes = [
         title: 'Choisissez vos produits',
         slogan: '',
         elements: [
-          { label: 'De la Brise', url: '/details/delabrise'}, 
+          { label: 'De la Brise', url: '/details/delabrise' },
           { label: 'Aquilon', url: '/details/aquilon' },
-          { label: 'Gast Micher',  url: '/details/gastmicher' },
+          { label: 'Gast Micher', url: '/details/gastmicher' },
           { label: 'Saphir', url: '/details/saphir' },
           { label: 'Contact', url: '/details/contact' },
           { label: 'Contact', url: '/details/contact' }
@@ -41,9 +41,9 @@ const routes: Routes = [
         title: 'Bateaux Partenaires',
         slogan: 'Toutes les eaux mènent à Thibault.',
         elements: [
-          { label: 'De la Brise', url: '/details/delabrise'}, 
+          { label: 'De la Brise', url: '/details/delabrise' },
           { label: 'Aquilon', url: '/details/aquilon' },
-          { label: 'Gast Micher',  url: '/details/gastmicher' },
+          { label: 'Gast Micher', url: '/details/gastmicher' },
           { label: 'Saphir', url: '/details/saphir' },
           { label: 'Contact', url: '/details/contact' },
           { label: 'Contact', url: '/details/contact' }
@@ -74,7 +74,7 @@ const routes: Routes = [
         ]
       }
     },
-    loadChildren: () => import('./list/list.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('./list/list.module').then(m => m.FolderPageModule)
   },
 ];
 
@@ -84,4 +84,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
