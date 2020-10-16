@@ -1,30 +1,38 @@
-{
-  "title": "Restaurants Partenaires",
-  "slogan": "Tous les restaurants partenaires avec le bateau de Thibault.",
-  "elements": [
-    {
-      "label": "Bistrot des Gascons",
-      "url": "/details/bistrotdesgascons"
-    },
-    {
-      "label": "Les fous de l\"île",
-      "url": "/details/lesfousdelile"
-    },
-    {
-      "label": "Bistrot Landais",
-      "url": "/details/bistrotlandais"
-    },
-    {
-      "label": "Villa 9-Trois",
-      "url": "/details/villa9-trois"
-    },
-    {
-      "label": "Bistrot du Sommelier",
-      "url": "/details/bistrotdusommelier"
-    },
-    {
-      "label": "Devenez Partenaire",
-      "url": "/details/devenezpartenaire"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Bistrot des Gascons",
+    "picture": "/assets/icon/desGascons.png",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "name": "Les fous de l\"île",
+    "picture": "/assets/icon/fousDeLIle.png",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "name": "Bistrot Landais",
+    "picture": "/assets/icon/bistrotLandais.png",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "Villa 9-Trois",
+    "picture": "/assets/icon/villa9Trois.png",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "Bistrot du Sommelier",
+    "picture": "/assets/icon/duSommelier.png",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "Devenez Partenaire",
+    "picture": "",
+    "description": ""
+  }
+]

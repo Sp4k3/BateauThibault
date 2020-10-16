@@ -19,4 +19,4 @@ import { ListPage } from './list.page';
   ],
   declarations: [ListPage, ListButtonsComponent, ListInfosComponent]
 })
-export class FolderPageModule {}
+export class ListPageModule {}

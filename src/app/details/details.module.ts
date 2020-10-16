@@ -18,6 +18,6 @@ import { ListInfosComponent } from './../list-infos/list-infos.component';
     IonicModule,
     DetailsPageRoutingModule
   ],
-  declarations: [DetailsPage, PageDetailComponent, ListInfosComponent]
+  declarations: [DetailsPage, PageDetailComponent]
 })
 export class DetailsPageModule {}

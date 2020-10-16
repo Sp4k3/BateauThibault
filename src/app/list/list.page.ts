@@ -15,35 +15,48 @@ export class ListPage implements OnInit {
   public image: string;
   public elements: {};
 
-  // constructor(private activatedRoute: ActivatedRoute) { }
-
   ngOnInit() {
-    this.list = this.activatedRoute.snapshot.paramMap.get('id');
-    this.getJSON()
     // this.title = this.activatedRoute.snapshot.data[this.list]['title'];
-    // this.slogan = this.activatedRoute.snapshot.data[this.list]['slogan'];
-    // this.elements = this.activatedRoute.snapshot.data[this.list]['elements'];
   }
 
-  constructor(private activatedRoute: ActivatedRoute, public JsonService:JsonService) {
-    // this.getJSON()
+  constructor(private activatedRoute: ActivatedRoute, public JsonService: JsonService) {
+    this.list = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getJSON(this.list);
+    this.getInfos(this.list);
   }
 
-  getJSON() {
+  getJSON(id: string) {
     this.JsonService
-      .getJSON(this.list)
+      .getJSON(id)
       .subscribe(
         (response) => {
-          console.log(response)
-          this.data = response
-          this.title = this.data['title']
-          this.slogan = this.data['slogan']
-          this.elements = this.data['elements']
+          this.data = response;
+          // console.log(this.data);
         },
         (error) => {
-          console.log('error : ' + error)
+          console.log('error : ' + error.message);
         }
       )
   }
+
+  getInfos(id: string) {
+    if (id === 'home') {
+      this.title = "Le Bateau de Thibault";
+      this.slogan = "Vente en direct de notre bateau.Produits selon la saison, livraisons sur Paris.";
+    } else if (id === 'products') {
+      this.title = 'Choisissez vos produits';
+      this.slogan = '';
+    } else if (id === 'boats') {
+      this.title = 'Bateaux Partenaires';
+      this.slogan = 'Toutes les eaux mènent à Thibault.';
+    } else if (id === 'restaurants') {
+      this.title = 'Restaurants partenaires';
+      this.slogan = 'Tous les restaurants partenaires avec le bateau de Thibault.';
+    } else if (id === 'recipes') {
+      this.title = 'Nos recettes'
+      this.slogan = 'Toutes les recettes du bateau de Thibault.';
+    }
+  }
+
 
 }

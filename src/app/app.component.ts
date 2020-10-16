@@ -20,27 +20,27 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Produits',
-      url: '/list/products',
+      url: '/products',
       icon: '/assets/icon/poisson.png'
     },
     {
       title: 'Bateaux',
-      url: '/list/boats',
+      url: '/boats',
       icon: '/assets/icon/ancre.png'
     },
     {
       title: 'Restaurants',
-      url: '/list/restaurants',
+      url: '/restaurants',
       icon: '/assets/icon/restaurant.png'
     },
     {
       title: 'Recettes',
-      url: '/list/recipes',
+      url: '/recipes',
       icon: '/assets/icon/recette.png'
     },
     {
       title: 'Contact',
-      url: '/details/contact',
+      url: '/contact',
       icon: '/assets/icon/tourteau.png'
     }
   ];

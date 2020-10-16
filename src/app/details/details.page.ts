@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -9,11 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsPage implements OnInit {
 
   public details: string;
+  public element: any;
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
     this.details = this.activatedRoute.snapshot.paramMap.get('id');
+    this.element = this.router.getCurrentNavigation().extras.state; // remplacer avec un localforage ?
+    console.log(this.element)
   }
 
 }

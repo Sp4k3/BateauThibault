@@ -1,30 +1,26 @@
-{
-  "title": "Nos Recettes",
-  "slogan": "Toutes les recettes du bateau de Thibault.",
-  "elements": [
-    {
-      "label": "Homard",
-      "url": "/details/homard"
-    },
-    {
-      "label": "St Jacques",
-      "url": "/details/stjacques"
-    },
-    {
-      "label": "Bar",
-      "url": "/details/bar"
-    },
-    {
-      "label": "Tourteau",
-      "url": "/details/tourteau"
-    },
-    {
-      "label": "Recette",
-      "url": "/list/recipes"
-    },
-    {
-      "label": "Recette",
-      "url": "/list/recipes"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Homard",
+    "picture": "/assets/icon/homardRecette.png",
+    "description": "Faites cuire les homards dans de l'eau bouillante avec du thym, du laurier, du sel et du poivre de Cayenne. Laissez cuire 20 minutes. Gouttez-les et laissez-les refroidir. Découpez les coffres des homards dans le sens de la longueur. Mélangez la mayonnaise avec le cognac, le corail et la ciboulette ciselée."
+  },
+  {
+    "id": 2,
+    "name": "St Jacques",
+    "picture": "/assets/icon/saintJacques.png",
+    "description": "Faire fondre du beurre avec des échalotes puis ajouter les noix de Saint-Jacques. Les faire revenir en laissant le milieu translucide puis les retirer du feu. Ajouter l'ail et le persil dans la poêle et laisser cuire quelques secondes. Bien faire chauffer la poêle, puis flamber au Cognac. Une fois la flamme éteinte, ajouter les noix de Saint-Jacques (il ne faut pas les flamber car elles perdraient leur saveur). Déguster chaud nature ou accompagné d'une fondue de poireaux."
+  },
+  {
+    "id": 3,
+    "name": "Bar",
+    "picture": "/assets/icon/barRecette.png",
+    "description": "Sur une plaque ou un plat allant au four, disposer  quelques feuilles de laurier frais, verser un filet d'huile d'olive et du gros sel. Disposer le bar, puis l'arroser d'un filet d'huile d'olive et mettre un peu de gros sel sur la peau. Cuire au four pendant 12 min."
+  },
+  {
+    "id": 4,
+    "name": "Tourteau",
+    "picture": "",
+    "description": ""
+  }
+]

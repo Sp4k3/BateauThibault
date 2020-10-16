@@ -8,9 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ListButtonsComponent implements OnInit {
   @Input() elements: {}
   @Input() list: {}
+  @Input() data: {}
 
-  constructor() {}
+  public descriptionPreview: string;
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit() { }
 
 }
