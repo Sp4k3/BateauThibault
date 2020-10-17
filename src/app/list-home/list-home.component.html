@@ -7,7 +7,7 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col *ngFor="let element of data" size="6" routerLink="{{element['url']}}" [state]="element">
+    <ion-col *ngFor="let element of data" [size]="element['name'] == 'Contact' ? '12' : '6'" routerLink="{{element['url']}}" [state]="element">
       <ion-button expand="block" routerLink="{{element['url']}}" [state]="element">{{ element['name'] }}</ion-button>
     </ion-col>
   </ion-row>
