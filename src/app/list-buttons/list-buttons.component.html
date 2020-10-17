@@ -2,7 +2,9 @@
   <!-- <ion-list *ngFor="let element of data">
     <ion-button expand="block" href="{{ element['url'] }}">{{ element['name'] }}</ion-button>
   </ion-list> -->
-  <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}" *ngFor="let element of data" routerLink="./{{element['name']}}" [state]="element">
+  <ion-row>
+    <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data" routerLink="./{{element['name']}}">
+  <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}" [state]="element">
     <ion-card-header *ngIf="this.list !== 'products'" class="header-list" routerLink="./{{element['name']}}" [state]="element">
       <ion-card-title class="title-list">{{element['name']}}</ion-card-title>
     </ion-card-header>
@@ -20,7 +22,9 @@
       </ion-label>
     </ion-item>
   </ion-card>
-  <ion-button size="default" color="medium" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
+</ion-col>
+</ion-row>
+  <ion-button class="button" size="default" color="medium" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
   <!-- <ion-list *ngFor="let element of elements">
     <ion-button expand="block" href="{{ element['url'] }}">{{ element['name'] }}</ion-button>
   </ion-list> -->

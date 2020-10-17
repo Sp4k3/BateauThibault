@@ -11,6 +11,7 @@ export class PageDetailComponent implements OnInit {
 
 
   @HostListener("window:resize") orientationState() {
+    this.element=this.element;
     if (screen.orientation.type == "portrait-primary") {
       return "12"
     } else if (screen.orientation.type == "landscape-primary") {
