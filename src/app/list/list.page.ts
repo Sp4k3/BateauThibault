@@ -55,6 +55,9 @@ export class ListPage implements OnInit {
     } else if (id === 'recipes') {
       this.title = 'Nos recettes'
       this.slogan = 'Toutes les recettes du bateau de Thibault.';
+    } else if (id === 'contact') {
+      this.title = 'Contact'
+      this.slogan = 'Contact';
     }
   }
 
