@@ -3,7 +3,7 @@
     <ion-button expand="block" href="{{ element['url'] }}">{{ element['name'] }}</ion-button>
   </ion-list> -->
   <ion-row>
-    <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data" routerLink="./{{element['name']}}">
+    <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data" routerLink="./{{element['name']}}" [state]="element">
   <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}" [state]="element">
     <ion-card-header *ngIf="this.list !== 'products'" class="header-list" routerLink="./{{element['name']}}" [state]="element">
       <ion-card-title class="title-list">{{element['name']}}</ion-card-title>
