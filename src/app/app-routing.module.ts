@@ -10,12 +10,7 @@ const routes: Routes = [
   {
     path: ':id',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  },
-  {
-    path: 'home',
-    pathMatch: 'full',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+  }
 ];
 
 @NgModule({
