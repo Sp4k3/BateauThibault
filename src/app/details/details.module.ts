@@ -9,7 +9,6 @@ import { DetailsPageRoutingModule } from './details-routing.module';
 import { DetailsPage } from './details.page';
 
 import { PageDetailComponent } from '../page-detail/page-detail.component'
-import { ListInfosComponent } from './../list-infos/list-infos.component';
 
 @NgModule({
   imports: [

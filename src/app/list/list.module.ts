@@ -1,5 +1,6 @@
 import { ListInfosComponent } from './../list-infos/list-infos.component';
 import { ListButtonsComponent } from './../list-buttons/list-buttons.component';
+import { ListHomeComponent } from '../list-home/list-home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,6 @@ import { ListPage } from './list.page';
     IonicModule,
     ListPageRoutingModule
   ],
-  declarations: [ListPage, ListButtonsComponent, ListInfosComponent]
+  declarations: [ListPage, ListButtonsComponent, ListInfosComponent, ListHomeComponent]
 })
 export class ListPageModule {}

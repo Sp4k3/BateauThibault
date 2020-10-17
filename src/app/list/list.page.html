@@ -9,11 +9,12 @@
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <app-list-infos 
+    <app-list-home
       *ngIf="this.list === 'home'" 
+      [data]="this.data"
       [slogan]="this.slogan"
       class="infos">
-    </app-list-infos>
+    </app-list-home>
     <app-list-buttons
       *ngIf="this.list !== 'home'"
       [data]="this.data"

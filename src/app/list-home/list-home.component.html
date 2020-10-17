@@ -1,0 +1,14 @@
+<div slot="fixed">
+  <h4>{{ this.slogan }}</h4>
+  06.63.99.99.78<br>
+  lebateaudethibault@gmail.com<br>
+  www.facebook.com/lebateaudethibault
+</div>
+
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let element of data" size="6" routerLink="{{element['url']}}" [state]="element">
+      <ion-button expand="block" routerLink="{{element['url']}}" [state]="element">{{ element['name'] }}</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
