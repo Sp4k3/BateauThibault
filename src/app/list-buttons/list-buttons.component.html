@@ -1,25 +1,44 @@
 <ion-grid>
-  <ion-row>
-    <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data" routerLink="./{{element['name']}}" [state]="element">
-      <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}">
-        <ion-card-header *ngIf="this.list !== 'products'" class="header-list" routerLink="./{{element['name']}}" [state]="element">
+  <ion-row *ngIf="this.list !== 'productCategories' && this.list !== 'products' else productCategories">
+    <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
+      <ion-card class="button-list" routerLink="./{{element['name']}}" [state]="element">
+      <!-- <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}"> -->
+        <ion-card-header class="header-list">
           <ion-card-title class="title-list">{{element['name']}}</ion-card-title>
         </ion-card-header>
-        <ion-img class="img-list" *ngIf="element['picture'] && this.list !== 'products'" src="{{element['picture']}}"></ion-img>
-        <ion-card-content class="content-list" *ngIf="element['description'] && this.list !== 'products'" routerLink="./{{element['name']}}" [state]="element">
+        <ion-img class="img-list" *ngIf="element['picture']" src="{{element['picture']}}"></ion-img>
+        <ion-card-content class="content-list" *ngIf="element['description']">
           {{element['description'].substring(0, 50) + " ..."}}
         </ion-card-content>
-
-        <ion-item *ngIf="this.list == 'products'">
+        <!-- <ion-item *ngIf="this.list === 'products'">
           <ion-avatar slot="start">
             <img src="./assets/icon/poisson.png">
           </ion-avatar>
           <ion-label class="title-list">
             {{element['name']}}
+            {{this.categories[element['category']]}}
           </ion-label>
-        </ion-item>
+        </ion-item> -->
       </ion-card>
     </ion-col>
   </ion-row>
+
+  <ng-template #productCategories>
+    <ion-row>
+      <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data" >
+        <ion-card class="button-product-list" routerLink="/products" >
+          <ion-item>
+            <ion-avatar slot="start">
+              <img src="./assets/icon/poisson.png">
+            </ion-avatar>
+            <ion-label class="title-list">
+              {{element['name']}}
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ng-template>
+
   <ion-button class="button" size="default" color="medium" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
 </ion-grid>

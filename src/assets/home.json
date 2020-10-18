@@ -1,7 +1,7 @@
 [
   {
     "name": "Produits",
-    "url": "/products",
+    "url": "/productCategories",
     "picture": "/assets/icon/poisson.png"
   },
   {

@@ -8,19 +8,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  public data: {};
-  public list: string;
-  public title: string;
-  public slogan: string;
-  public image: string;
-  public elements: {};
+  public data: {}
+  public list: string
+  public title: string
+  public products: {}
 
   ngOnInit() {}
 
   constructor(private activatedRoute: ActivatedRoute, public JsonService: JsonService) {
-    this.list = this.activatedRoute.snapshot.paramMap.get('id');
-    this.getJSON(this.list);
-    this.getInfos(this.list);
+    this.list = this.activatedRoute.snapshot.paramMap.get('id')
+    this.getJSON(this.list)
+    this.getInfos(this.list)
   }
 
   getJSON(id: string) {
@@ -28,34 +26,42 @@ export class ListPage implements OnInit {
       .getJSON(id)
       .subscribe(
         (response) => {
-          this.data = response;
-          // console.log(this.data);
+          this.data = response
+          console.log(this.data)
         },
         (error) => {
-          console.log('error : ' + error.message);
+          console.log('error : ' + error.message)
+        }
+      )
+  }
+
+  getProducts() {
+    this.JsonService
+      .getJSON('products')
+      .subscribe(
+        (response) => {
+          this.products = response
+        },
+        (error) => {
+          console.log('error : ' + error.message)
         }
       )
   }
 
   getInfos(id: string) {
     if (id === 'home') {
-      this.title = "Le Bateau de Thibault";
-      this.slogan = "Vente en direct de notre bateau.Produits selon la saison, livraisons sur Paris.";
-    } else if (id === 'products') {
-      this.title = 'Choisissez vos produits';
-      this.slogan = '';
+      this.title = 'Le Bateau de Thibault'
+    } else if (id === 'productCategories') {
+      this.title = 'Choisissez vos produits'
+      this.getProducts()
     } else if (id === 'boats') {
-      this.title = 'Bateaux Partenaires';
-      this.slogan = 'Toutes les eaux mènent à Thibault.';
+      this.title = 'Bateaux Partenaires'
     } else if (id === 'restaurants') {
-      this.title = 'Restaurants partenaires';
-      this.slogan = 'Tous les restaurants partenaires avec le bateau de Thibault.';
+      this.title = 'Restaurants partenaires'
     } else if (id === 'recipes') {
       this.title = 'Nos recettes'
-      this.slogan = 'Toutes les recettes du bateau de Thibault.';
     } else if (id === 'contact') {
       this.title = 'Contact'
-      this.slogan = 'Contact';
     }
   }
 }
