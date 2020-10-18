@@ -10,15 +10,16 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <app-list-home
-      *ngIf="this.list === 'home'" 
+      *ngIf="this.list === 'home'; else buttonsBlock" 
       [data]="this.data"
       [slogan]="this.slogan"
       class="infos">
     </app-list-home>
-    <app-list-buttons
-      *ngIf="this.list !== 'home'"
-      [data]="this.data"
-      [list]="this.list">
-    </app-list-buttons>
+    <ng-template #buttonsBlock>
+      <app-list-buttons
+        [data]="this.data"
+        [list]="this.list">
+      </app-list-buttons>
+    </ng-template>
   </div>
 </ion-content>

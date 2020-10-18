@@ -1,3 +1,4 @@
+import { DetailsPage } from './../details/details.page';
 import { ListInfosComponent } from './../list-infos/list-infos.component';
 import { ListButtonsComponent } from './../list-buttons/list-buttons.component';
 import { ListHomeComponent } from '../list-home/list-home.component';

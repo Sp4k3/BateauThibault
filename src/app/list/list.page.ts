@@ -15,9 +15,7 @@ export class ListPage implements OnInit {
   public image: string;
   public elements: {};
 
-  ngOnInit() {
-    // this.title = this.activatedRoute.snapshot.data[this.list]['title'];
-  }
+  ngOnInit() {}
 
   constructor(private activatedRoute: ActivatedRoute, public JsonService: JsonService) {
     this.list = this.activatedRoute.snapshot.paramMap.get('id');
@@ -60,6 +58,4 @@ export class ListPage implements OnInit {
       this.slogan = 'Contact';
     }
   }
-
-
 }
