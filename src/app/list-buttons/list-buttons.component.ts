@@ -7,16 +7,29 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 })
 export class ListButtonsComponent implements OnInit {
   @Input() list: {}
-  @Input() data: {}
-  @Input() products: {}
+  @Input() data: []
+  @Input() productCategories: []
 
-  constructor() { }
+  public filteredProducts: any[]
+
+  constructor() { 
+    this.filteredProducts = ['0', '1', '2']
+  }
 
   ngOnInit() { }
+
+  onChange(categories) {
+    this.filteredProducts = categories
+  }
+
+  filterProducts(categoryId) {
+    return this.filteredProducts.includes(categoryId)
+  }
 
   @HostListener('window:resize') orientationState() {
     this.list = this.list
     this.data = this.data
+    
     
     if (screen.orientation.type == 'portrait-primary') {
       return '12'

@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Produits',
-      url: '/productCategories',
+      url: '/products',
       icon: '/assets/icon/poisson.png'
     },
     {

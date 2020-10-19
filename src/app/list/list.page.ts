@@ -11,7 +11,7 @@ export class ListPage implements OnInit {
   public data: {}
   public list: string
   public title: string
-  public products: {}
+  public productCategories: {}
 
   ngOnInit() {}
 
@@ -26,8 +26,8 @@ export class ListPage implements OnInit {
       .getJSON(id)
       .subscribe(
         (response) => {
+          // console.log(response)
           this.data = response
-          console.log(this.data)
         },
         (error) => {
           console.log('error : ' + error.message)
@@ -35,12 +35,13 @@ export class ListPage implements OnInit {
       )
   }
 
-  getProducts() {
+  getProductCategories() {
     this.JsonService
-      .getJSON('products')
+      .getJSON('productCategories')
       .subscribe(
         (response) => {
-          this.products = response
+          // console.log(response)
+          this.productCategories = response
         },
         (error) => {
           console.log('error : ' + error.message)
@@ -51,9 +52,9 @@ export class ListPage implements OnInit {
   getInfos(id: string) {
     if (id === 'home') {
       this.title = 'Le Bateau de Thibault'
-    } else if (id === 'productCategories') {
+    } else if (id === 'products') {
       this.title = 'Choisissez vos produits'
-      this.getProducts()
+      this.getProductCategories()
     } else if (id === 'boats') {
       this.title = 'Bateaux Partenaires'
     } else if (id === 'restaurants') {

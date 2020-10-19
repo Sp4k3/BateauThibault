@@ -1,5 +1,5 @@
 <ion-grid>
-  <ion-row *ngIf="this.list !== 'productCategories' && this.list !== 'products' else productCategories">
+  <ion-row *ngIf="this.list !== 'products' else products">
     <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
       <ion-card class="button-list" routerLink="./{{element['name']}}" [state]="element">
       <!-- <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}"> -->
@@ -10,23 +10,20 @@
         <ion-card-content class="content-list" *ngIf="element['description']">
           {{element['description'].substring(0, 50) + " ..."}}
         </ion-card-content>
-        <!-- <ion-item *ngIf="this.list === 'products'">
-          <ion-avatar slot="start">
-            <img src="./assets/icon/poisson.png">
-          </ion-avatar>
-          <ion-label class="title-list">
-            {{element['name']}}
-            {{this.categories[element['category']]}}
-          </ion-label>
-        </ion-item> -->
       </ion-card>
     </ion-col>
   </ion-row>
 
-  <ng-template #productCategories>
+  <ng-template #products>
     <ion-row>
-      <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data" >
-        <ion-card class="button-product-list" routerLink="/products" >
+      <ion-item>
+        <ion-label>Filtrer les produits</ion-label>
+        <ion-select interface="alert" class="custom-options" multiple="true" [(ngModel)]="categories" (ionChange)="this.onChange(categories)">
+          <ion-select-option *ngFor="let category of productCategories" value="{{category['id']}}">{{category['name']}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
+        <ion-card class="button-product-list" *ngIf="this.filterProducts(element['category'].toString())" routerLink="./{{element['name']}}" [state]="element">
           <ion-item>
             <ion-avatar slot="start">
               <img src="./assets/icon/poisson.png">
