@@ -49,9 +49,25 @@ export class ListPage implements OnInit {
       )
   }
 
+  getCart() {
+    this.JsonService
+      .getJSON('productCategories')
+      .subscribe(
+        (response) => {
+          // console.log(response)
+          this.productCategories = response
+        },
+        (error) => {
+          console.log('error : ' + error.message)
+        }
+      )
+  }
+
   getInfos(id: string) {
     if (id === 'home') {
       this.title = 'Le Bateau de Thibault'
+    } else if (id === 'cart') {
+      this.title = 'Votre panier'
     } else if (id === 'products') {
       this.title = 'Choisissez vos produits'
       this.getProductCategories()

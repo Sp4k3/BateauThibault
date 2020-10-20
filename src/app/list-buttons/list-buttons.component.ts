@@ -23,7 +23,12 @@ export class ListButtonsComponent implements OnInit {
   }
 
   filterProducts(categoryId) {
-    return this.filteredProducts.includes(categoryId)
+    console.log(this.filteredProducts)
+    if (this.filteredProducts.length < 1) {
+      return this.filteredProducts
+    } else {
+      return this.filteredProducts.includes(categoryId)
+    }
   }
 
   @HostListener('window:resize') orientationState() {
