@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     {
       title: 'Panier',
       url: '/cart',
-      icon: '/assets/icon/home.png'
+      icon: '/assets/icon/panier.png'
     },
     {
       title: 'Produits',
