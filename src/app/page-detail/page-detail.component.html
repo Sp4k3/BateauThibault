@@ -6,7 +6,7 @@
         <ion-col size={{orientationState()}}>
           <img src="{{element['picture']}}">
         </ion-col>
-        <ion-col size={{orientationState()}} class="ion-align-self-center" *ngIf="element['description'] else productDetails">
+        <ion-col size={{orientationState()}} class="ion-align-self-center" *ngIf="element['description'] != null else productDetails">
           {{addBr(element['description'])}}
         </ion-col>
         <ng-template #productDetails>
