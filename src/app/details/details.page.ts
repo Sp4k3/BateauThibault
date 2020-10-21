@@ -14,8 +14,7 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     this.details = this.activatedRoute.snapshot.paramMap.get('id')
-    this.element = this.router.getCurrentNavigation().extras.state // remplacer avec un localforage ?
-    console.log(this.element)
+    this.element = this.router.getCurrentNavigation().extras.state
   }
 
 }

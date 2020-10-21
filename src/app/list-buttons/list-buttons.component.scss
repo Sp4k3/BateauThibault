@@ -5,7 +5,7 @@
 }
 
 .button-product-list{
-  height: 45px;
+  height: 90px;
   margin-top: 20px;
 }
 
@@ -33,7 +33,13 @@
 
 .addButton{
   background-color: #488aff;
-  color: #ffffff; 
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 0px;
+}
+.detailsButton{
+  background-color: #488aaa;
+  color: #ffffff;
   border-radius: 5px;
   margin-top: 0px;
 }

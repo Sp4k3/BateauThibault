@@ -1,5 +1,5 @@
 <ion-grid>
-  <ion-row *ngIf="this.list !== 'products' else products">
+  <ion-row *ngIf="this.list !== 'products' && this.list !== 'cart' else productsList">
     <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
       <ion-card class="button-list" routerLink="./{{element['name']}}" [state]="element">
       <!-- <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}"> -->
@@ -14,8 +14,8 @@
     </ion-col>
   </ion-row>
 
-  <ng-template #products>
-    <ion-row>
+  <ng-template #productsList>
+    <ion-row *ngIf="this.list === 'products' else cartList">
       <ion-item>
         <ion-label>Filtrer les produits</ion-label>
         <ion-select interface="alert" class="custom-options" multiple="true" [(ngModel)]="categories" (ionChange)="this.onChange(categories)">
@@ -23,20 +23,50 @@
         </ion-select>
       </ion-item>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
-        <ion-card class="button-product-list" *ngIf="this.filterProducts(element['category'].toString())" routerLink="./{{element['name']}}" [state]="element">
-          <ion-item>
+        <!-- <ion-card class="button-product-list" *ngIf="this.filterProducts(element['category'].toString())"> -->
+          <ion-item class="button-product-list">
             <ion-avatar slot="start">
               <img src="./assets/icon/poisson.png">
             </ion-avatar>
-            <ion-label class="title-list">
-              {{element['name']}}
+            <ion-label>
+              <h1>
+                {{element['name']}}
+              </h1>
+              <p>
+                <ion-button class="addButton" ion-button icon-left small (click)="showPicker(element)">
+                  <ion-icon name="add"></ion-icon>
+                  Ajout
+                </ion-button>
+                <ion-button class="detailsButton" ion-button icon-left small routerLink="./{{element['name']}}" [state]="element">
+                  <ion-icon name="open"></ion-icon>
+                  Détails
+                </ion-button>
+              </p>
             </ion-label>
-            <ion-button class="addButton" ion-button icon-left small>
-              <ion-icon name="add"></ion-icon>
-              Ajout
-            </ion-button>
           </ion-item>
-        </ion-card>
+        <!-- </ion-card> -->
+      </ion-col>
+    </ion-row>
+  </ng-template>
+
+  <ng-template #cartList>
+    <ion-row>
+      <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of cart">
+        <!-- <ion-card class="button-product-list"> -->
+          <ion-item class="button-product-list">
+            <ion-avatar slot="start">
+              <img src="./assets/icon/poisson.png">
+            </ion-avatar>
+            <ion-label>
+              <h1>
+                {{element['name']}} 
+              </h1>
+              <p>
+                Quantité : {{element['quantity']}}
+              </p>
+            </ion-label>
+          </ion-item>
+        <!-- </ion-card> -->
       </ion-col>
     </ion-row>
   </ng-template>

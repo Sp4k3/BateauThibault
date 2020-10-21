@@ -1,6 +1,7 @@
 import { JsonService } from './../services/json.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import * as localforage from 'localforage';
 
 @Component({
   selector: 'app-list',
@@ -17,7 +18,9 @@ export class ListPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, public JsonService: JsonService) {
     this.list = this.activatedRoute.snapshot.paramMap.get('id')
-    this.getJSON(this.list)
+    if (this.list !== 'cart') {
+      this.getJSON(this.list)
+    }
     this.getInfos(this.list)
   }
 
@@ -35,7 +38,7 @@ export class ListPage implements OnInit {
       )
   }
 
-  getProductCategories() {
+  async getProductCategories() {
     this.JsonService
       .getJSON('productCategories')
       .subscribe(
@@ -49,21 +52,7 @@ export class ListPage implements OnInit {
       )
   }
 
-  getCart() {
-    this.JsonService
-      .getJSON('productCategories')
-      .subscribe(
-        (response) => {
-          // console.log(response)
-          this.productCategories = response
-        },
-        (error) => {
-          console.log('error : ' + error.message)
-        }
-      )
-  }
-
-  getInfos(id: string) {
+  async getInfos(id: string) {
     if (id === 'home') {
       this.title = 'Le Bateau de Thibault'
     } else if (id === 'cart') {
