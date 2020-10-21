@@ -16,7 +16,8 @@ export class ListButtonsComponent implements OnInit {
   public filteredProducts: any[]
   public cart: any[]
   public isPicker: boolean
-  animals: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  public quantity: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  public price: number
 
   constructor(private pickerController: PickerController) { }
 
@@ -24,6 +25,7 @@ export class ListButtonsComponent implements OnInit {
     this.filteredProducts = ['0', '1', '2']
     this.cart = await localforage.getItem('cart')
     this.isPicker = true
+    this.price = await this.getTotal()
    }
 
   onChange(categories) {
@@ -38,8 +40,15 @@ export class ListButtonsComponent implements OnInit {
       this.cart = this.cart.filter(localProduct => localProduct['name'] !== product['name'])
       product.quantity += localQuantity
     }
-      this.cart.push(product)
+    this.cart.push(product)
     await localforage.setItem('cart', this.cart)
+  }
+
+  async getTotal() {
+    this.cart = await localforage.getItem('cart') || []
+    return this.cart
+                .map(product => product['price'] * product['quantity'])
+                .reduce((acc, productPrice) => acc += productPrice)
   }
 
   filterProducts(categoryId) {
@@ -59,7 +68,7 @@ export class ListButtonsComponent implements OnInit {
         },
         {
           text: 'Ok',
-          handler: (value:any) => {
+          handler: (value: any) => {
             this.setCart(element, value['Quantity']['value'])
           }
         }
@@ -74,8 +83,8 @@ export class ListButtonsComponent implements OnInit {
   }
 
   getColumnOptions() {
-    let options = [];
-    this.animals.forEach(x => {
+    let options = []
+    this.quantity.forEach(x => {
       options.push({text:x,value:x})
     })
     return options

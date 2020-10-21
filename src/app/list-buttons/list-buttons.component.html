@@ -65,7 +65,18 @@
           </ion-item>
       </ion-col>
     </ion-row>
+    <ion-col class="column">
+      <ion-item>
+        <ion-label>
+            Total : {{this.price}}€
+          <ion-button class="detailsButton" ion-button icon-left smallrouterLink="" [state]="">
+            <ion-icon name="checkmark"></ion-icon>
+            Valider la commande
+          </ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-col>
   </ng-template>
 
-  <ion-button class="button" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
+  <!-- <ion-button class="button" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button> -->
 </ion-grid>
