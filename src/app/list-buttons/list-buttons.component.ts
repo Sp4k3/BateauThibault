@@ -16,7 +16,7 @@ export class ListButtonsComponent implements OnInit {
   public filteredProducts: any[]
   public cart: any[]
   public isPicker: boolean
-  animals: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+  animals: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   constructor(private pickerController: PickerController) { }
 
@@ -32,16 +32,14 @@ export class ListButtonsComponent implements OnInit {
 
   async setCart(product, quantity) {
     product.quantity = await quantity
-    console.log(product)
-    // console.log(quantity)
     this.cart = await localforage.getItem('cart') || []
-    this.cart.push(product)
+    if (this.cart !== [] && this.cart.filter(localProduct => localProduct['name'] === product['name']).length > 0) {
+      const localQuantity = this.cart.filter(localProduct => localProduct['name'] === product['name'])[0]['quantity']
+      this.cart = this.cart.filter(localProduct => localProduct['name'] !== product['name'])
+      product.quantity += localQuantity
+    }
+      this.cart.push(product)
     await localforage.setItem('cart', this.cart)
-    // for (let i=0; i<quantity; i++) {
-    //   this.cart = await localforage.getItem('cart') || []
-    //   this.cart.push(product)
-    //   await localforage.setItem('cart', this.cart)
-    // }
   }
 
   filterProducts(categoryId) {
@@ -61,8 +59,7 @@ export class ListButtonsComponent implements OnInit {
         },
         {
           text: 'Ok',
-          handler:(value:any) => {
-            // console.log(value)
+          handler: (value:any) => {
             this.setCart(element, value['Quantity']['value'])
           }
         }

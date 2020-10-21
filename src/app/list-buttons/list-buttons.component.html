@@ -23,8 +23,7 @@
         </ion-select>
       </ion-item>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
-        <!-- <ion-card class="button-product-list" *ngIf="this.filterProducts(element['category'].toString())"> -->
-          <ion-item class="button-product-list">
+          <ion-item class="button-product-list" *ngIf="this.filterProducts(element['category'].toString())">
             <ion-avatar slot="start">
               <img src="./assets/icon/poisson.png">
             </ion-avatar>
@@ -44,7 +43,6 @@
               </p>
             </ion-label>
           </ion-item>
-        <!-- </ion-card> -->
       </ion-col>
     </ion-row>
   </ng-template>
@@ -52,7 +50,6 @@
   <ng-template #cartList>
     <ion-row>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of cart">
-        <!-- <ion-card class="button-product-list"> -->
           <ion-item class="button-product-list">
             <ion-avatar slot="start">
               <img src="./assets/icon/poisson.png">
@@ -66,7 +63,6 @@
               </p>
             </ion-label>
           </ion-item>
-        <!-- </ion-card> -->
       </ion-col>
     </ion-row>
   </ng-template>
