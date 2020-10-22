@@ -54,3 +54,27 @@
   border-radius: 5px;
   margin-top: 0px;
 }
+
+.deleteButton {
+  float: right;
+  color: grey;
+}
+
+.btnIcon{
+  color: #488aff;
+  font-size: 25px;
+  padding-bottom: -10px;
+}
+
+.elmtDetails{
+
+  font-size: 18px;
+  display: flex;
+  align-items: center; 
+  color: #8c8c8c
+}
+
+.elmtQuantity{
+  display: flex;
+  align-items: center;
+}

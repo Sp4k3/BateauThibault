@@ -33,6 +33,24 @@ export class ListButtonsComponent implements OnInit {
     this.filteredProducts = categories
   }
 
+  async setMinusQuantity(product){
+    let newCart : any[] = await localforage.getItem('cart') || []
+    const indexProduct = this.cart.indexOf(product)
+    product['quantity']!=0 ? product['quantity']-=1 : product['quantity']
+    newCart.splice(indexProduct, 1, product)
+    localforage.setItem("cart", newCart)
+    this.price = await this.getTotal()
+  }
+
+  async setPlusQuantity(product){
+    let newCart : any[] = await localforage.getItem('cart') || []
+    const indexProduct = this.cart.indexOf(product)
+    product['quantity']+=1
+    newCart.splice(indexProduct, 1, product)
+    localforage.setItem("cart", newCart)
+    this.price = await this.getTotal()
+  }
+
   async setCart(product, quantity) {
     product.quantity = await quantity
     this.cart = await localforage.getItem('cart') || []
