@@ -63,12 +63,17 @@
     <ion-row>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of cart">
           <ion-item class="cart-list">
-            <ion-avatar slot="start">
+            <!-- <ion-avatar slot="start">
               <img src="./assets/icon/poisson.png">
-            </ion-avatar>
+            </ion-avatar> -->
             <ion-label>
               <h1>
+<<<<<<< HEAD
                 {{element['name']}} <ion-icon class="deleteButton" size="large" name="close-circle-outline"></ion-icon>
+=======
+                {{element['name']}} 
+                <ion-icon class="deleteButton" size="large" name="close-circle-outline" (click)="this.deleteProduct(element)"></ion-icon>
+>>>>>>> master
               </h1>
               <div class="elmtDetails">
                <p>Quantité : </p> 
@@ -98,18 +103,21 @@
           </ion-item>
       </ion-col>
     </ion-row>
-    <ion-col class="column">
-      <ion-item class="cart-list">
+    <ion-col class="column" *ngIf="price !== undefined">
+      <ion-item class="cart-total">
         <ion-label>
-            Total : {{this.price}}€
-          </ion-label>
-          <ion-button class="detailsButton" icon-left expand="block" routerLink="" [state]="">
-            <ion-icon name="checkmark"></ion-icon>
-            Valider
-          </ion-button>
-        </ion-item>
+          Total : {{this.price}}€
+        </ion-label>
+        <ion-button class="validationButton" icon-left expand="block" routerLink="" [state]="">
+          <ion-icon name="checkmark"></ion-icon>
+          Valider
+        </ion-button>
+      </ion-item>
     </ion-col>
   </ng-template>
 
   <ion-button class="button" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
+  <div *ngIf="this.list === 'cart'">
+    <br><br><br>
+  </div>
 </ion-grid>
