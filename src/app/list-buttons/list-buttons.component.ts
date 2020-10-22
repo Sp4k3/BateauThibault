@@ -29,7 +29,6 @@ export class ListButtonsComponent implements OnInit {
    }
 
   onChange(categories) {
-    console.log(categories)
     this.filteredProducts = categories
   }
 
@@ -47,9 +46,12 @@ export class ListButtonsComponent implements OnInit {
 
   async getTotal() {
     this.cart = await localforage.getItem('cart') || []
-    return this.cart
-                .map(product => product['price'] * product['quantity'])
-                .reduce((acc, productPrice) => acc += productPrice)
+    console.log(this.price)
+    if (this.cart[0]) {
+      return this.cart
+                  .map(product => product['price'] * product['quantity'])
+                  .reduce((acc, productPrice) => acc += productPrice)
+    }
   }
 
   filterProducts(product) {
@@ -72,6 +74,14 @@ export class ListButtonsComponent implements OnInit {
   //     return this.filteredProducts.includes(product['category'].toString()) && isSale
   //   }
   // }
+
+  async deleteProduct(product) {
+    console.log(product)
+    this.cart = await localforage.getItem('cart') || []
+    this.cart = this.cart.filter(localProduct => localProduct['name'] !== product['name'])
+    await localforage.setItem('cart', this.cart)
+    this.price = await this.getTotal()
+  }
 
   async showPicker(element) {
     let options: PickerOptions = {
