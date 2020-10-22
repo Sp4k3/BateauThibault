@@ -35,7 +35,12 @@ export class ListButtonsComponent implements OnInit {
   async setMinusQuantity(product){
     let newCart : any[] = await localforage.getItem('cart') || []
     const indexProduct = this.cart.indexOf(product)
-    product['quantity']!=0 ? product['quantity']-=1 : product['quantity']
+    if(product['quantity']!=1){
+      product['quantity']-=1 
+    }else{
+      this.deleteProduct(product)
+      return
+    }
     newCart.splice(indexProduct, 1, product)
     localforage.setItem("cart", newCart)
     this.price = await this.getTotal()
