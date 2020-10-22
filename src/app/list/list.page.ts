@@ -9,7 +9,7 @@ import * as localforage from 'localforage';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-  public data: {}
+  public data: any[]
   public list: string
   public title: string
   public productCategories: {}
@@ -30,7 +30,13 @@ export class ListPage implements OnInit {
       .subscribe(
         (response) => {
           // console.log(response)
-          this.data = response
+          if (this.list === 'home') {
+            this.data = response.filter(element =>  element['name'] === 'Produits' || 
+                                                    element['name'] === 'Panier' || 
+                                                    element['name'] === 'Contact')
+          } else {
+            this.data = response
+          }
         },
         (error) => {
           console.log('error : ' + error.message)

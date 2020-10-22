@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { Platform } from '@ionic/angular'
 import { SplashScreen } from '@ionic-native/splash-screen/ngx'
 import { StatusBar } from '@ionic-native/status-bar/ngx'
+import { JsonService } from './services/json.service';
 
 @Component({
   selector: 'app-root',
@@ -11,49 +12,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx'
 })
 export class AppComponent implements OnInit {
 
-  public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'Accueil',
-      url: '',
-      icon: '/assets/icon/home.png'
-    },
-    {
-      title: 'Panier',
-      url: '/cart',
-      icon: '/assets/icon/panier.png'
-    },
-    {
-      title: 'Produits',
-      url: '/products',
-      icon: '/assets/icon/poisson.png'
-    },
-    {
-      title: 'Bateaux',
-      url: '/boats',
-      icon: '/assets/icon/ancre.png'
-    },
-    {
-      title: 'Restaurants',
-      url: '/restaurants',
-      icon: '/assets/icon/restaurant.png'
-    },
-    {
-      title: 'Recettes',
-      url: '/recipes',
-      icon: '/assets/icon/recette.png'
-    },
-    {
-      title: 'Contact',
-      url: '/contact',
-      icon: '/assets/icon/tourteau.png'
-    }
-  ];
+  public selectedIndex = 0
+  public data: any[]
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private JsonService: JsonService
   ) {
     this.initializeApp();
   }
@@ -66,9 +32,24 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('list/')[1]
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase())
-    }
+    // const path = window.location.pathname.split('')[1]
+    // if (path !== undefined) {
+    //   this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase())
+    // }
+    this.getJSON()
+  }
+
+  getJSON() {
+    this.JsonService
+      .getJSON('home')
+      .subscribe(
+        (response) => {
+          // console.log(response)
+          this.data = response
+        },
+        (error) => {
+          console.log('error : ' + error.message)
+        }
+      )
   }
 }

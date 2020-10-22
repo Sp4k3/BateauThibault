@@ -10,5 +10,9 @@
   {
     "id": 2,
     "name": "Crustacés"
+  },
+  {
+    "id": true,
+    "name": "En promotion"
   }
 ]

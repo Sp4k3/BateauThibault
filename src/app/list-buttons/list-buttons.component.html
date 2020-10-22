@@ -2,7 +2,6 @@
   <ion-row *ngIf="this.list !== 'products' && this.list !== 'cart' else productsList">
     <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
       <ion-card class="button-list" routerLink="./{{element['name']}}" [state]="element">
-      <!-- <ion-card [ngClass]="{'button-list': this.list !== 'products', 'button-product-list': this.list == 'products'}"> -->
         <ion-card-header class="header-list">
           <ion-card-title class="title-list">{{element['name']}}</ion-card-title>
         </ion-card-header>
@@ -16,33 +15,46 @@
 
   <ng-template #productsList>
     <ion-row *ngIf="this.list === 'products' else cartList">
-      <ion-item>
+      <ion-item class="picker">
         <ion-label>Filtrer les produits</ion-label>
         <ion-select interface="alert" class="custom-options" multiple="true" [(ngModel)]="categories" (ionChange)="this.onChange(categories)">
           <ion-select-option *ngFor="let category of productCategories" value="{{category['id']}}">{{category['name']}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
-          <ion-item class="button-product-list" *ngIf="this.filterProducts(element['category'].toString())">
-            <ion-avatar slot="start">
-              <img src="./assets/icon/poisson.png">
-            </ion-avatar>
-            <ion-label>
-              <h1>
-                {{element['name']}}
-              </h1>
+        <ion-card class="product-list" *ngIf="this.filterProducts(element)">
+        <!-- <ion-card class="product-list" *ngIf="this.filterProducts(element['category'].toString(), element['sale'])"> -->
+          <ion-avatar slot="start">
+            <img src="./assets/icon/poisson.png">
+          </ion-avatar>
+          <ion-card-header>
+            <ion-card-title>
+              {{element['name']}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              {{element['comments']}}
+            </p>
+            <p *ngIf="element['discount'] === 0 else discountPrice">
+              Prix : {{element['price']}}€/{{element['unit']}}
+            </p>
+            <ng-template #discountPrice>
               <p>
-                <ion-button class="addButton" ion-button icon-left small (click)="showPicker(element)">
-                  <ion-icon name="add"></ion-icon>
-                  Ajout
-                </ion-button>
-                <ion-button class="detailsButton" ion-button icon-left small routerLink="./{{element['name']}}" [state]="element">
-                  <ion-icon name="open"></ion-icon>
-                  Détails
-                </ion-button>
+                Prix : <del>{{element['price']}}€/{{element['unit']}}</del>&nbsp;<font color="red">{{element['discount']}}€/{{element['unit']}}</font>
               </p>
-            </ion-label>
-          </ion-item>
+            </ng-template>
+            <br>
+            <ion-button class="addButton" ion-button icon-left expand="block" large (click)="showPicker(element)">
+              <ion-icon name="add"></ion-icon>
+              Ajout
+            </ion-button>
+            <!-- <ion-button class="detailsButton" ion-button icon-left small routerLink="./{{element['name']}}" [state]="element">
+              <ion-icon name="open"></ion-icon>
+              Détails
+            </ion-button> -->
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ng-template>
@@ -50,7 +62,7 @@
   <ng-template #cartList>
     <ion-row>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of cart">
-          <ion-item class="button-product-list">
+          <ion-item class="cart-list">
             <ion-avatar slot="start">
               <img src="./assets/icon/poisson.png">
             </ion-avatar>
@@ -59,24 +71,26 @@
                 {{element['name']}} 
               </h1>
               <p>
-                Quantité : {{element['quantity']}}
+                Quantité : {{element['quantity']}} x {{element['price']}}€
+                <br>
+                Sous-total : {{element['quantity'] * element['price']}}€
               </p>
             </ion-label>
           </ion-item>
       </ion-col>
     </ion-row>
     <ion-col class="column">
-      <ion-item>
+      <ion-item class="cart-list">
         <ion-label>
             Total : {{this.price}}€
-          <ion-button class="detailsButton" ion-button icon-left smallrouterLink="" [state]="">
+          </ion-label>
+          <ion-button class="detailsButton" icon-left expand="block" routerLink="" [state]="">
             <ion-icon name="checkmark"></ion-icon>
-            Valider la commande
+            Valider
           </ion-button>
-        </ion-label>
-      </ion-item>
+        </ion-item>
     </ion-col>
   </ng-template>
 
-  <!-- <ion-button class="button" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button> -->
+  <ion-button class="button" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
 </ion-grid>

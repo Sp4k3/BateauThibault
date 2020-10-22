@@ -29,6 +29,7 @@ export class ListButtonsComponent implements OnInit {
    }
 
   onChange(categories) {
+    console.log(categories)
     this.filteredProducts = categories
   }
 
@@ -51,13 +52,26 @@ export class ListButtonsComponent implements OnInit {
                 .reduce((acc, productPrice) => acc += productPrice)
   }
 
-  filterProducts(categoryId) {
-    if (this.filteredProducts.length < 1) {
+  filterProducts(product) {
+    let isSale = this.filteredProducts.includes(product['sale'].toString())
+    if (this.filteredProducts.length < 1) {
       return this.filteredProducts
-    } else {
-      return this.filteredProducts.includes(categoryId)
+    } else if (this.filteredProducts.length < 2 && this.filteredProducts.includes('true')) {
+      return this.filteredProducts && isSale
+    } else if (!this.filteredProducts.includes('true')) {
+      return this.filteredProducts.includes(product['category'].toString())
+    } else if (this.filteredProducts.length >= 2 && this.filteredProducts.includes('true')) {
+      return this.filteredProducts.includes(product['category'].toString()) && isSale
     }
   }
+
+  // filterProducts(product) {
+  //   if (this.filteredProducts.length < 1 && this.filteredProducts.includes('true')) {
+  //     return this.filteredProducts
+  //   } else {
+  //     return this.filteredProducts.includes(product['category'].toString()) && isSale
+  //   }
+  // }
 
   async showPicker(element) {
     let options: PickerOptions = {

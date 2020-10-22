@@ -1,4 +1,3 @@
-<!-- #0099ff -->
 <div slot="fixed">
   <h4>Vente en direct de notre bateau. Produits selon la saison, livraisons sur Paris.</h4>
 </div>
@@ -7,7 +6,7 @@
 
 <ion-grid>
   <ion-row>
-    <ion-col *ngFor="let element of data" [size]="element['name'] == 'Contact' ? '12' : '6'" routerLink="{{element['url']}}" [state]="element">
+    <ion-col *ngFor="let element of data" [size]="element['name'] == 'Produits' ? '12' : '6'" routerLink="{{element['url']}}" [state]="element">
       <ion-button expand="block" routerLink="{{element['url']}}" [state]="element">{{ element['name'] }}</ion-button>
     </ion-col>
   </ion-row>
