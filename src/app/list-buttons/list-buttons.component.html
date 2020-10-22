@@ -68,14 +68,37 @@
             </ion-avatar> -->
             <ion-label>
               <h1>
+<<<<<<< HEAD
                 {{element['name']}} 
                 <ion-icon class="deleteButton" size="large" name="close-circle-outline" (click)="this.deleteProduct(element)"></ion-icon>
+=======
+                {{element['name']}} <ion-icon class="deleteButton" size="large" name="close-circle-outline"></ion-icon>
+>>>>>>> Feat/cartDetails
               </h1>
+              <div class="elmtDetails">
+               <p>Quantité : </p> 
+                <span class="elmtQuantity">
+                <ion-icon class="btnIcon" (click)="setMinusQuantity(element)"  name="remove-circle-outline"></ion-icon>
+                <p>{{element['quantity']}}</p>
+                <ion-icon class="btnIcon" (click)="setPlusQuantity(element)" name="add-circle-outline"></ion-icon>
+                </span>
+                <p>&nbsp; x&nbsp; {{element['price']}}€</p>
+              </div>
               <p>
-                Quantité : {{element['quantity']}} x {{element['price']}}€
-                <br>
                 Sous-total : {{element['quantity'] * element['price']}}€
               </p>
+              <!-- <p style="
+              font-size: 18px;">
+                Quantité : 
+                <span>
+                <ion-icon class="btnIcon"  name="remove-circle-outline"></ion-icon>
+                {{element['quantity']}}
+                <ion-icon class="btnIcon"  name="add-circle-outline"></ion-icon>
+                </span> x {{element['price']}}€
+              </p>
+              <p>
+                Sous-total : {{element['quantity'] * element['price']}}€
+              </p> -->
             </ion-label>
           </ion-item>
       </ion-col>
