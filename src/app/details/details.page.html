@@ -10,5 +10,6 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <app-page-detail [element]="element"></app-page-detail>
+    <app-list-infos *ngIf="element['name'] === 'Devenez Partenaire'"></app-list-infos>
   </div>
 </ion-content>

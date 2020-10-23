@@ -12,14 +12,17 @@ export class ListPage implements OnInit {
   public data: any[]
   public list: string
   public title: string
-  public productCategories: {}
+  public productCategories: any[]
+  public shipPoints: any[]
 
-  ngOnInit() {}
+  constructor(private activatedRoute: ActivatedRoute, public JsonService: JsonService) { }
 
-  constructor(private activatedRoute: ActivatedRoute, public JsonService: JsonService) {
+  ngOnInit() {
     this.list = this.activatedRoute.snapshot.paramMap.get('id')
     if (this.list !== 'cart') {
       this.getJSON(this.list)
+    } else {
+      this.getShipPoints()
     }
     this.getInfos(this.list)
   }
@@ -51,6 +54,20 @@ export class ListPage implements OnInit {
         (response) => {
           // console.log(response)
           this.productCategories = response
+        },
+        (error) => {
+          console.log('error : ' + error.message)
+        }
+      )
+  }
+
+  async getShipPoints() {
+    this.JsonService
+      .getJSON('shipPoints')
+      .subscribe(
+        (response) => {
+          // console.log(response)
+          this.shipPoints = response
         },
         (error) => {
           console.log('error : ' + error.message)

@@ -1,5 +1,4 @@
 .button-list {
-  height: 300px;
   margin-top: 40px;
   //overflow-y: scroll;
 }
@@ -13,9 +12,7 @@
 }
 
 .cart-total {
-  padding-top: 5px;
   width: 100%;
-  background-color: white;
   position: fixed;
   z-index: 10;
   bottom: 0px;
@@ -44,8 +41,9 @@
   margin-bottom: -45px;
 }
 
-.button{
-  margin-top: 40px;
+.contactButton {
+  margin-top: 30px;
+  margin-bottom: 80px;
 }
 
 .addButton {
@@ -68,7 +66,6 @@
   background-color: #488aaa;
   color: #ffffff;
   border-radius: 5px;
-  margin-top: 0px;
 }
 
 .deleteButton {

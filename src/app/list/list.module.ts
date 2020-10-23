@@ -11,6 +11,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListPageRoutingModule } from './list-routing.module';
 
 import { ListPage } from './list.page';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { ListPage } from './list.page';
     IonicModule,
     ListPageRoutingModule
   ],
-  declarations: [ListPage, ListButtonsComponent, ListInfosComponent, ListHomeComponent]
+  declarations: [ListPage, ListButtonsComponent, ListInfosComponent, ListHomeComponent, PopUpComponent]
 })
 export class ListPageModule {}

@@ -1,3 +1,4 @@
+import { ListInfosComponent } from './../list-infos/list-infos.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,6 @@ import { PageDetailComponent } from '../page-detail/page-detail.component'
     IonicModule,
     DetailsPageRoutingModule
   ],
-  declarations: [DetailsPage, PageDetailComponent]
+  declarations: [DetailsPage, PageDetailComponent, ListInfosComponent]
 })
 export class DetailsPageModule {}

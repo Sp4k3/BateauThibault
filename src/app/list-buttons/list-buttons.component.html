@@ -23,7 +23,6 @@
       </ion-item>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of data">
         <ion-card class="product-list" *ngIf="this.filterProducts(element)">
-        <!-- <ion-card class="product-list" *ngIf="this.filterProducts(element['category'].toString(), element['sale'])"> -->
           <ion-avatar slot="start">
             <img src="./assets/icon/poisson.png">
           </ion-avatar>
@@ -49,10 +48,6 @@
               <ion-icon name="add"></ion-icon>
               Ajout
             </ion-button>
-            <!-- <ion-button class="detailsButton" ion-button icon-left small routerLink="./{{element['name']}}" [state]="element">
-              <ion-icon name="open"></ion-icon>
-              Détails
-            </ion-button> -->
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -62,49 +57,39 @@
   <ng-template #cartList>
     <ion-row>
       <ion-col class="column" size="{{orientationState()}}" *ngFor="let element of cart">
-          <ion-item class="cart-list">
-            <!-- <ion-avatar slot="start">
-              <img src="./assets/icon/poisson.png">
-            </ion-avatar> -->
-            <ion-label>
-              <h1>
-                {{element['name']}} 
-                <ion-icon class="deleteButton" size="large" name="close-circle-outline" (click)="this.deleteProduct(element)"></ion-icon>
-              </h1>
-              <div class="elmtDetails">
-               <p>Quantité : </p> 
-                <span class="elmtQuantity">
-                <ion-icon class="btnIcon" (click)="setMinusQuantity(element)"  name="remove-circle-outline"></ion-icon>
-                <p>{{element['quantity']}}</p>
-                <ion-icon class="btnIcon" (click)="setPlusQuantity(element)" name="add-circle-outline"></ion-icon>
-                </span>
-                <p>&nbsp; x&nbsp; {{element['price']}}€</p>
-              </div>
-              <p>
-                Sous-total : {{element['quantity'] * element['price']}}€
-              </p>
-              <!-- <p style="
-              font-size: 18px;">
-                Quantité : 
-                <span>
-                <ion-icon class="btnIcon"  name="remove-circle-outline"></ion-icon>
-                {{element['quantity']}}
-                <ion-icon class="btnIcon"  name="add-circle-outline"></ion-icon>
-                </span> x {{element['price']}}€
-              </p>
-              <p>
-                Sous-total : {{element['quantity'] * element['price']}}€
-              </p> -->
-            </ion-label>
-          </ion-item>
+        <ion-item class="cart-list">
+          <ion-label>
+            <h1>
+              {{element['name']}} 
+              <ion-icon class="deleteButton" size="large" name="close-circle-outline" (click)="this.deleteProduct(element)"></ion-icon>
+            </h1>
+            <div class="elmtDetails">
+              <p>Quantité : </p> 
+              <span class="elmtQuantity">
+              <ion-icon class="btnIcon" (click)="setMinusQuantity(element)"  name="remove-circle-outline"></ion-icon>
+              <p>{{element['quantity']}}</p>
+              <ion-icon class="btnIcon" (click)="setPlusQuantity(element)" name="add-circle-outline"></ion-icon>
+              </span>
+              <p>&nbsp; x&nbsp; {{element['price']}}€</p>
+            </div>
+            <p>
+              Sous-total : {{element['quantity'] * element['price']}}€
+            </p>
+          </ion-label>
+        </ion-item>
       </ion-col>
     </ion-row>
     <ion-col class="column" *ngIf="price !== undefined">
       <ion-item class="cart-total">
         <ion-label>
           Total : {{this.price}}€
+          <p *ngIf="this.shipPoint !== undefined">
+            {{this.shipPoint['data']['name']}}
+            <br>
+            {{this.shipPoint['data']['address']}}
+          </p>
         </ion-label>
-        <ion-button class="validationButton" icon-left expand="block" routerLink="" [state]="">
+        <ion-button class="validationButton" icon-left expand="block" (click)="showModal()">
           <ion-icon name="checkmark"></ion-icon>
           Valider
         </ion-button>
@@ -112,8 +97,5 @@
     </ion-col>
   </ng-template>
 
-  <ion-button class="button" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
-  <div *ngIf="this.list === 'cart'">
-    <br><br><br>
-  </div>
+  <ion-button class="contactButton" size="default" expand="block" routerLink="/contact" *ngIf="this.list !== 'contact'">Contact</ion-button>
 </ion-grid>

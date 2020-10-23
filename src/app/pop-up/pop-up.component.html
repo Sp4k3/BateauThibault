@@ -1,0 +1,22 @@
+<ion-row>
+  <ion-col class="column" *ngFor="let shipPoint of shipPoints">
+    <ion-item (click)="dismissModal(shipPoint)">
+      <ion-label>
+        <h2>
+          {{shipPoint['name']}}
+        </h2>
+        <p>
+          {{shipPoint['address']}}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-col>
+  <!-- <ion-row>
+    <ion-col>
+      <ion-button expand="block" (click)="modalClose(true)">Save Note</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" color="danger" (click)="modalClose(false)">Cancel</ion-button>
+    </ion-col>
+  </ion-row> -->
+</ion-row>
