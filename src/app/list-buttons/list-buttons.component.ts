@@ -1,8 +1,8 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { ModalController, PickerController, PopoverController } from "@ionic/angular";
-import { PickerOptions } from "@ionic/core";
-import * as localforage from 'localforage';
-import { PopUpComponent } from '../pop-up/pop-up.component';
+import { Component, HostListener, Input, OnInit } from '@angular/core'
+import { ModalController, PickerController } from "@ionic/angular"
+import { PickerOptions } from "@ionic/core"
+import * as localforage from 'localforage'
+import { PopUpComponent } from '../pop-up/pop-up.component'
 
 @Component({
   selector: 'app-list-buttons',
@@ -17,10 +17,8 @@ export class ListButtonsComponent implements OnInit {
 
   private filteredProducts: any[]
   private cart: any[]
-  private isPicker: boolean
   private quantity: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   private price: number
-  private currentModal: any = null
   private shipPoint: {}
 
   constructor(private pickerController: PickerController, private modalController: ModalController) { }
@@ -28,7 +26,6 @@ export class ListButtonsComponent implements OnInit {
   async ngOnInit() {
     this.filteredProducts = ['0', '1', '2']
     this.cart = await localforage.getItem('cart')
-    this.isPicker = true
     this.price = await this.getTotal()
    }
 
@@ -47,7 +44,6 @@ export class ListButtonsComponent implements OnInit {
     })
     modal.present()
     this.shipPoint = await modal.onWillDismiss()
-    console.log(this.shipPoint['data'])
   }
 
   async setMinusQuantity(product) {
@@ -107,16 +103,7 @@ export class ListButtonsComponent implements OnInit {
     }
   }
 
-  // filterProducts(product) {
-  //   if (this.filteredProducts.length < 1 && this.filteredProducts.includes('true')) {
-  //     return this.filteredProducts
-  //   } else {
-  //     return this.filteredProducts.includes(product['category'].toString()) && isSale
-  //   }
-  // }
-
   async deleteProduct(product) {
-    console.log(product)
     this.cart = await localforage.getItem('cart') || []
     this.cart = this.cart.filter(localProduct => localProduct['name'] !== product['name'])
     await localforage.setItem('cart', this.cart)

@@ -1,5 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, Input, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-page-detail',

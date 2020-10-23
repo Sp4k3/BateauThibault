@@ -1,7 +1,6 @@
-import { JsonService } from './../services/json.service';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import * as localforage from 'localforage';
+import { JsonService } from './../services/json.service'
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-list',
