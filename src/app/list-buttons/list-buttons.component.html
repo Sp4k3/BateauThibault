@@ -15,7 +15,7 @@
 
   <ng-template #productsList>
     <ion-row *ngIf="this.list === 'products' else cartList">
-      <ion-item class="picker">
+      <ion-item class="picker" style="width: 100%;">
         <ion-label>Filtrer les produits</ion-label>
         <ion-select interface="alert" class="custom-options" multiple="true" [(ngModel)]="categories" (ionChange)="this.onChange(categories)">
           <ion-select-option *ngFor="let category of productCategories" value="{{category['id']}}">{{category['name']}}</ion-select-option>
